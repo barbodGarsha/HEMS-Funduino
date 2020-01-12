@@ -33,7 +33,7 @@
     #define A5_LED_B 6 //LED Blue on pin 5
 
 // A6 CPU MAP
-    #define A6_LED1 6
+    #define A6_LED1 6 
     #define A6_BUTTON 7
 
 // A7 CPU MAP
