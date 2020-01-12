@@ -1,6 +1,6 @@
 #include "HEMS_Funduino.h"
 
-int A2B()
+int program_A2B()
 {
     program_A2B_init();
     for (;;)
@@ -8,9 +8,10 @@ int A2B()
         /* code */
     }
     
+    return 0;
 }
 
-int A3()
+int program_A3()
 {
     program_A3_init();
     for (;;)
@@ -21,7 +22,7 @@ int A3()
     return 0;
 }
 
-int A4()
+int program_A4()
 {
     program_A4_init();
     for (;;)
