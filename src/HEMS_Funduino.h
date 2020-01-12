@@ -20,6 +20,10 @@
 // Define the HEMS_Funduino system include files.
 // NOTE: Do not alter organization.
 #include "CPU_MAPS.h"
+#include "confiq.h"
+#include "prints.h"
+#include "serial.h"
 #include "pin_modes.h"
+#include "programs.h"
 
 #endif
