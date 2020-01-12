@@ -23,6 +23,7 @@
 #include "confiq.h"
 #include "prints.h"
 #include "serial.h"
+#include "protocol.h"
 #include "pin_modes.h"
 #include "programs.h"
 
