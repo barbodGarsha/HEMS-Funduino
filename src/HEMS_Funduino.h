@@ -4,6 +4,9 @@
 // HEMS_Funduino version
 #define HEMS_Funduino_VERSION "0.1"
 
+// Define the Arduino library
+#include <Arduino.h>
+
 // Define standard libraries.
 #include <avr/io.h>
 #include <avr/pgmspace.h>
@@ -23,6 +26,7 @@
 #include "confiq.h"
 #include "prints.h"
 #include "serial.h"
+#include "basic_functions.h"
 #include "protocol.h"
 #include "pin_modes.h"
 #include "programs.h"

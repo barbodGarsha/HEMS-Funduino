@@ -1,6 +1,16 @@
 #include "HEMS_Funduino.h"
 
-void program_A2B_init(){}
+//each function here will set the in/output pins for each program
+
+void program_A2B_init()
+{
+    // Setting pins 3,4,5,6,7 as outputs for the LEDs
+    pinMode(A2B_LED1, OUTPUT);
+    pinMode(A2B_LED2, OUTPUT);
+    pinMode(A2B_LED3, OUTPUT);
+    pinMode(A2B_LED4, OUTPUT);
+    pinMode(A2B_LED5, OUTPUT);
+}
 
 void program_A3_init(){}
 

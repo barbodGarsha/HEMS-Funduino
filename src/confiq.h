@@ -1,7 +1,6 @@
 #ifndef confiq_h 
 #define confiq_h
 
-
 // Serial baud rate
 #define BAUD_RATE 9600
 

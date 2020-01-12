@@ -1,5 +1,4 @@
 #include "HEMS_Funduino.h"
-#include <Arduino.h>
 
 int main()
 {

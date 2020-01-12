@@ -3,19 +3,14 @@
 static char line[LINE_BUFFER_SIZE]; // Line to be executed
 
 // executes the codes we send to the program bz serial port
-static void protocol_execute_line(char *line)
+void protocol_execute_line(char *line)
 {
     if (line[0] == 0) {
-
-    } else if (line[0] == '#') {
-        // '#' is system code
-        printPgmString(PSTR("system code\n"));
+        // igonre an empty line
     } else if (line[0] == 'P') {
         // 'P' is the code for changing the program
-        printPgmString(PSTR("Program change\n"));
-    } else {
-        // maybe there will be realtime commands
-        printPgmString(PSTR("realtime\n"));
+        program_change(String(line));
+        printPgmString(PSTR("P\n"));
     }
 }
 

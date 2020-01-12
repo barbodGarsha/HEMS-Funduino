@@ -1,5 +1,8 @@
 #include "HEMS_Funduino.h"
 
+// print functions are here
+// we need them to communicate with the PC/Laptop
+
 void printString(const char *s)
 {
 	while (*s)
