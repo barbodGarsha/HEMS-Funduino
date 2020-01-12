@@ -1,5 +1,12 @@
 #include "HEMS_Funduino.h"
 
+//realtime command bits
+volatile uint8_t realtime_command = 0;
+
+// set the realtime bits
+//TO DO2: realtime command... it just works for reset command
+void set_realtime_command(){realtime_command = 1;}
+
 // execute the program based on the program code we got from the PC/Laptop
 // for example PA2B means the Program for the Aufgabe 2B
 void program_change(String program)
@@ -40,6 +47,14 @@ int program_A2B()
         led_blink(A2B_LED4, PA2B_BLINK_DELAY_MS);
         led_blink(A2B_LED5, PA2B_BLINK_DELAY_MS);
         delay_ms(PA2B_LOOP_DELAY_MS);
+        if (realtime_command)
+        {
+            //TO DO2: realtime command... it just works for reset command 
+
+            //Reset
+            break;
+        }
+        
     }
     
     return 0;

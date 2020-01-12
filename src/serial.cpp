@@ -1,5 +1,6 @@
 #include "HEMS_Funduino.h"
 
+
 uint8_t serial_rx_buffer[RX_BUFFER_SIZE];
 uint8_t serial_rx_buffer_head = 0;
 volatile uint8_t serial_rx_buffer_tail = 0;
@@ -59,6 +60,8 @@ ISR(SERIAL_UDRE)
 
 	// Turn off Data Register Empty Interrupt to stop tx-streaming if this concludes the transfer
 	if (tail == serial_tx_buffer_head) { UCSR0B &= ~(1 << UDRIE0); }
+
+	//TO DO2: realtime commands handling
 }
 
 uint8_t serial_read()
@@ -83,13 +86,24 @@ ISR(SERIAL_RX)
 	uint8_t data = UDR0;
 	uint8_t next_head;
 
-	next_head = serial_rx_buffer_head + 1;
-	if (next_head == RX_BUFFER_SIZE) { next_head = 0; }
+	switch (data)
+	{
+	case 'r':
+		//TO DO2: realtime command
+		// it just works for reset for now
+		set_realtime_command();
+		break;
+	
+	default:
+		next_head = serial_rx_buffer_head + 1;
+		if (next_head == RX_BUFFER_SIZE) { next_head = 0; }
 
-	// Write data to buffer unless it is full.
-	if (next_head != serial_rx_buffer_tail) {
-		serial_rx_buffer[serial_rx_buffer_head] = data;
-		serial_rx_buffer_head = next_head;
+		// Write data to buffer unless it is full.
+		if (next_head != serial_rx_buffer_tail) {
+			serial_rx_buffer[serial_rx_buffer_head] = data;
+			serial_rx_buffer_head = next_head;
+		}
+		break;
 	}
 
 }

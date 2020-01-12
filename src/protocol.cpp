@@ -10,7 +10,7 @@ void protocol_execute_line(char *line)
     } else if (line[0] == 'P') {
         // 'P' is the code for changing the program
         program_change(String(line));
-        printPgmString(PSTR("P\n"));
+        printPgmString(PSTR("end\n"));
     }
 }
 
