@@ -32,7 +32,29 @@
     #define A5_LED_G 5 //LED Green on pin 4
     #define A5_LED_B 6 //LED Blue on pin 5
 
+// A6 CPU MAP
+    #define A6_LED1 6
+    #define A6_BUTTON 7
 
+// A7 CPU MAP
+    #define A7_PIEZO 5
+    #define A7_MOTION_DETECTOR 7
 
+// A8 CPU MAP
+    #define A8_LED1 10
+    #define A8_BRIGHTNESS_SENSOR A0
+
+// A9 CPU MAP
+    #define A9_LED1 13
+    #define A9_KNOB A0
+
+// A10 CPU MAP
+    #define A10_PIEZO 5
+    #define A10_TMP36 A0
+
+// A11 CPU MAP
+    #define A11_TRIGGER 7
+    #define A11_ECHO 6
+    #define A10_PIEZO 5
 
 #endif
