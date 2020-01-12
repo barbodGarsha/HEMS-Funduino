@@ -12,7 +12,7 @@
 #define RX_BUFFER_SIZE 128
 #define TX_BUFFER_SIZE 64
 
-#define MPU6050 0x68 // MPU6050 address
+#define LINE_BUFFER_SIZE 80
 
 #define N_DECIMAL 3
 
