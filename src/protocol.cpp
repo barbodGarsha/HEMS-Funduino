@@ -10,7 +10,11 @@ void protocol_execute_line(char *line)
     } else if (line[0] == 'P') {
         // 'P' is the code for changing the program
         program_change(String(line));
-        printPgmString(PSTR("end\n"));
+
+        #ifdef CLI_ENABLE
+        printPgmString(PSTR("Exited\n"));
+        printPgmString(PSTR("Please enter the name of the program"));
+        #endif
     }
 }
 
@@ -19,6 +23,17 @@ void protocol_loop()
 {
     uint8_t char_counter = 0;
   	uint8_t c;	
+
+    //Start-up message
+    #ifdef CLI_ENABLE
+        #ifdef STRAT_UP_MESSAGE_ENABLE
+        printPgmString(PSTR("HEMS Funduino Version : "));
+        printPgmString(PSTR(HEMS_FUNDUINO_VERSION));
+        printPgmString(PSTR("\n"));    
+        printPgmString(PSTR(STRAT_UP_MESSAGE));
+        #endif 
+    #endif 
+        
 
 	for (;;)
     {

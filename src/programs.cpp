@@ -13,8 +13,10 @@ void program_change(String program)
 {
     
     if (program == PA2B)
-    {    
-        printPgmString(PSTR("PA2B\n"));
+    {   
+        #ifdef CLI_ENABLE
+        printPgmString(PSTR("PA2B is running\n"));
+        #endif 
         program_A2B();
     }
     else if(program == PA3)
@@ -51,6 +53,9 @@ int program_A2B()
         {
             //TO DO2: realtime command... it just works for reset command 
 
+            #ifdef CLI_ENABLE
+            printPgmString(PSTR("Exiting...\n"));
+            #endif 
             //Reset
             break;
         }
