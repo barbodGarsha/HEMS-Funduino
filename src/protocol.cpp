@@ -9,12 +9,23 @@ void protocol_execute_line(char *line)
         // igonre an empty line
     } else if (line[0] == 'P') {
         // 'P' is the code for changing the program
-        program_change(String(line));
-
-        #ifdef CLI_ENABLE
-        printPgmString(PSTR("Exited\n"));
-        printPgmString(PSTR("Please enter the name of the program"));
-        #endif
+        
+        if (program_change(String(line)))
+        {
+            #ifdef CLI_ENABLE
+            printPgmString(PSTR("Error: There is no program with this code\n\n"));
+            printPgmString(PSTR("Please enter the name of the program\n"));
+            #endif
+        }
+        else
+        {
+            #ifdef CLI_ENABLE
+            printPgmString(PSTR("Exited\n\n"));
+            printPgmString(PSTR("Please enter the name of the program\n"));
+            #endif
+        }
+        
+        
     }
 }
 

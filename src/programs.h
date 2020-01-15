@@ -7,7 +7,7 @@
 
 // PA2B DEFAULTS ------------------------------------------------------------
 
-// the delay for program loops in ms
+// the delay for program PA2B loop in ms
 #define PA2B_LOOP_DELAY_MS 1000 
 
 // the delay for led_blink in ms
@@ -15,13 +15,23 @@
 
 //---------------------------------------------------------------------------
 
+
 // PA3 DEFAULTS ------------------------------------------------------------
+
+// the delay for program PA3 loop in ms
+#define PA3_LOOP_DELAY_MS 100 
+
+#define BRIGHTNESS_MAX  255
+#define BRIGHTNESS_MIN 0
+#define FADE_STEPS 5
 
 //---------------------------------------------------------------------------
 
 void set_realtime_command();
 
-void program_change(String program);
+int check_realtime();
+
+int program_change(String program);
 
 int program_A2B();
 
