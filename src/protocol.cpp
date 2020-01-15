@@ -5,6 +5,7 @@ static char line[LINE_BUFFER_SIZE]; // Line to be executed
 // executes the codes we send to the program bz serial port
 void protocol_execute_line(char *line)
 {
+    // TO DO1: better error handle messages
     if (line[0] == 0) {
         // igonre an empty line
     } else if (line[0] == 'P') {
@@ -24,9 +25,27 @@ void protocol_execute_line(char *line)
             printPgmString(PSTR("Please enter the name of the program\n"));
             #endif
         }
-        
-        
     }
+    else if (line[0] == 'H')
+    {
+         // 'H' is the code for Help 
+         // user can get the CPU maps with this command
+
+        if (help_line(String(line)))
+        {
+            #ifdef CLI_ENABLE
+            printPgmString(PSTR("Error: There is no program with this code\n\n"));
+            printPgmString(PSTR("\n"));
+            #endif
+        }
+        else
+        {
+            #ifdef CLI_ENABLE
+            printPgmString(PSTR("\n\n"));
+            #endif
+        }
+    }
+    
 }
 
 // Program main loop

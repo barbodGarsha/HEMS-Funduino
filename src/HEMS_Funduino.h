@@ -30,5 +30,6 @@
 #include "protocol.h"
 #include "pin_modes.h"
 #include "programs.h"
+#include "help.h"
 
 #endif
