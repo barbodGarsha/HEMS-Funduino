@@ -19,10 +19,11 @@ void led_blink(int n, int ms)
 // At the end this function returns the brightness just in case we need it for example in led_fade_on_off it is needed
 int led_fade_on(int n, int brightness, int brightness_max, int fade_schritte, int delay_ms)
 {
-  for(brightness; brightness < brightness_max; brightness += fade_schritte)
+  while(brightness < brightness_max)
   {
     analogWrite(n, brightness);
     delay(delay_ms);
+    brightness += fade_schritte;
   }
   return brightness;
 }
@@ -31,10 +32,11 @@ int led_fade_on(int n, int brightness, int brightness_max, int fade_schritte, in
 // At the end this function returns the brightness just in case we need it for example in led_fade_on_off it is needed
 int led_fade_off(int n, int brightness, int brightness_min, int fade_schritte, int delay_ms)
 {
-  for(brightness; brightness > brightness_min; brightness -= fade_schritte)
+  while(brightness > brightness_min)
   {
     analogWrite(n, brightness);
     delay(delay_ms);
+    brightness -= fade_schritte;
   }
   return brightness;
 }
