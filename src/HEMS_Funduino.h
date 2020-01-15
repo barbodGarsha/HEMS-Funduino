@@ -2,7 +2,7 @@
 #define HEMS_Funduino_h
 
 // HEMS_Funduino version
-#define HEMS_Funduino_VERSION "0.1"
+#define HEMS_FUNDUINO_VERSION "0.1"
 
 // Define the Arduino library
 #include <Arduino.h>
