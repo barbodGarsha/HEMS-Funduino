@@ -241,3 +241,61 @@ int program_A6()
 
     return 0;
 }
+
+int program_A7()
+{
+    // set the pins
+    program_A7_init();
+    
+    int moved = 0;
+
+    for (;;)
+    {
+        moved = digitalRead(A7_MOTION_DETECTOR);
+
+        if (moved == HIGH)
+        {
+            led_blink(A6_LED1, 5000);
+        }
+        
+        //TO DO2: realtime command... it just works for reset command 
+        // check if there is an interrupt 
+        if (check_realtime()) { break; }
+    }
+
+    return 0;
+}
+
+int program_A8()
+{
+    // set the pins
+    program_A8_init();
+    
+    int sensor = 0;
+
+    for (;;)
+    {
+        sensor = analogRead(A8_BRIGHTNESS_SENSOR);
+
+        printPgmString(PSTR("Sensorwert: \n"));
+        printInteger(sensor);        
+        printPgmString(PSTR("\n"));
+
+        if (sensor > 512)
+        {
+            digitalWrite(A8_LED1, HIGH);
+        }
+        else
+        {
+            digitalWrite(A8_LED1, LOW);
+        }
+        
+        delay(PA8_LOOP_DELAY_MS);
+
+        //TO DO2: realtime command... it just works for reset command 
+        // check if there is an interrupt 
+        if (check_realtime()) { break; }
+    }
+
+    return 0;
+}

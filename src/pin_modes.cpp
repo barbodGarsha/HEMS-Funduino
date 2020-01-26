@@ -59,9 +59,16 @@ void program_A6_init()
     pinMode(A6_BUTTON, INPUT);
 }
 
-void program_A7_init(){}
+void program_A7_init()
+{
+    pinMode(A7_MOTION_DETECTOR, INPUT);
+    pinMode(A7_PIEZO, OUTPUT);
+}
 
-void program_A8_init(){}
+void program_A8_init()
+{
+    pinMode(A8_LED1, OUTPUT);
+}
 
 void program_A9_init(){}
 

@@ -67,6 +67,14 @@
 //---------------------------------------------------------------------------
 
 
+// PA8 DEFAULTS ------------------------------------------------------------
+
+// the delay for program PA8 loop in ms
+#define PA8_LOOP_DELAY_MS 50 
+
+//---------------------------------------------------------------------------
+
+
 
 void set_realtime_command();
 
@@ -87,5 +95,9 @@ int program_A4B();
 int program_A5();
 
 int program_A6();
+
+int program_A7();
+
+int program_A8();
 
 #endif
