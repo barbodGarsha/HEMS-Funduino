@@ -45,6 +45,9 @@ int program_change(String program)
     }
     else if(program == PA4)
     {
+        #ifdef CLI_ENABLE
+        printPgmString(PSTR("PA4 is running\n"));
+        #endif
         program_A4_init();
     }
     else
@@ -85,6 +88,7 @@ int program_A2B()
 
 int program_A3()
 {
+    // set the pins
     program_A3_init();
     for (;;)
     {
@@ -104,10 +108,107 @@ int program_A3()
 
 int program_A4()
 {
+    // set the pins
     program_A4_init();
     for (;;)
     {
-        /* code */
+        digitalWrite(A4_LED1, HIGH);
+        digitalWrite(A4_PIEPS, HIGH);
+        delay(PA4_LOOP_DELAY_MS);
+  
+        digitalWrite(A4_LED1, LOW);
+        digitalWrite(A4_PIEPS, LOW);
+        delay(PA4_LOOP_DELAY_MS);
+
+        //TO DO2: realtime command... it just works for reset command 
+        // check if there is an interrupt 
+        if (check_realtime()) { break; }
+    }
+
+    return 0;
+}
+
+int program_A4A()
+{
+    // set the pins
+    program_A4A_init();
+    for (;;)
+    {
+        digitalWrite(A4_LED1, HIGH);
+        digitalWrite(A4_PIEPS, HIGH);
+        delay(PA4_LOOP_DELAY_MS);
+  
+        digitalWrite(A4_LED1, LOW);
+        digitalWrite(A4_PIEPS, LOW);
+        delay(PA4_LOOP_DELAY_MS);
+
+        //TO DO2: realtime command... it just works for reset command 
+        // check if there is an interrupt 
+        if (check_realtime()) { break; }
+    }
+
+    return 0;
+}
+
+int program_A4B()
+{
+    // set the pins
+    program_A4B_init();
+    for (;;)
+    {
+        
+        led_blink(A4B_LED1, PA4B_LOOP_DELAY_MS);
+        led_blink(A4B_LED2, PA4B_LOOP_DELAY_MS);
+        led_blink(A4B_LED3, PA4B_LOOP_DELAY_MS);
+        digitalWrite(A4B_PIEPS, HIGH);
+        delay(PA4B_LOOP_DELAY_MS);
+        digitalWrite(A4B_PIEPS, LOW);
+        delay(PA4B_LOOP_DELAY_MS);
+
+        //TO DO2: realtime command... it just works for reset command 
+        // check if there is an interrupt 
+        if (check_realtime()) { break; }
+    }
+
+    return 0;
+}
+
+int program_A5()
+{
+    // set the pins
+    program_A5_init();
+    for (;;)
+    {
+        RGB_led_color_change(random(0,255), random(0,255), random(0,255));
+        delay(PA5_LOOP_DELAY_MS);
+       
+        //TO DO2: realtime command... it just works for reset command 
+        // check if there is an interrupt 
+        if (check_realtime()) { break; }
+    }
+
+    return 0;
+}
+
+int program_A6()
+{
+    // set the pins
+    program_A6_init();
+    
+    int clicked = 0;
+
+    for (;;)
+    {
+        clicked = digitalRead(A6_BUTTON);
+
+        if (clicked == HIGH)
+        {
+            led_blink(A6_LED1, 5000);
+        }
+        
+        //TO DO2: realtime command... it just works for reset command 
+        // check if there is an interrupt 
+        if (check_realtime()) { break; }
     }
 
     return 0;

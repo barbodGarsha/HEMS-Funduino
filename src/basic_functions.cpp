@@ -48,3 +48,30 @@ void led_fade_on_off(int n, int delay_ms)
   brightness = led_fade_on(n, brightness, BRIGHTNESS_MAX, FADE_STEPS, 100);
   led_fade_off(n, brightness, BRIGHTNESS_MIN, FADE_STEPS, 100);
 }
+
+// Returns the pin number of each color for PA5
+int get_color_pin(int x)
+{
+  if(x == R)
+  {
+    return A5_LED_R;
+  }
+  if(x == G)
+  {
+    return A5_LED_G;
+  }
+  if(x == B)
+  {
+    return A5_LED_B;
+  }
+  
+  return -1;
+}
+
+// Changes the color of the color of the led in PA5
+void RGB_led_color_change(int red_light_value, int green_light_value, int blue_light_value)
+{
+  analogWrite(get_color_pin(R), red_light_value);
+  analogWrite(get_color_pin(G), green_light_value);
+  analogWrite(get_color_pin(B), blue_light_value);
+}
