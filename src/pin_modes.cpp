@@ -70,9 +70,15 @@ void program_A8_init()
     pinMode(A8_LED1, OUTPUT);
 }
 
-void program_A9_init(){}
+void program_A9_init()
+{
+    pinMode(A9_LED1, OUTPUT);
+}
 
-void program_A10_init(){}
+void program_A10_init()
+{
+    pinMode(A10_PIEZO, OUTPUT);
+}
 
 void program_A11_init(){}
 

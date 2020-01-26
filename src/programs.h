@@ -75,6 +75,14 @@
 //---------------------------------------------------------------------------
 
 
+// PA10 DEFAULTS ------------------------------------------------------------
+
+// the delay for program PA10 loop in ms
+#define PA10_LOOP_DELAY_MS 500 
+
+//---------------------------------------------------------------------------
+
+
 
 void set_realtime_command();
 
@@ -99,5 +107,9 @@ int program_A6();
 int program_A7();
 
 int program_A8();
+
+int program_A9();
+
+int program_A10();
 
 #endif

@@ -124,7 +124,7 @@ int program_A3()
         led_fade_on_off(A3_LED1, 10);
 
         // wait
-        delay(PA3_LOOP_DELAY_MS);
+        delay_ms(PA3_LOOP_DELAY_MS);
 
         //TO DO2: realtime command... it just works for reset command 
         // check if there is an interrupt 
@@ -142,11 +142,11 @@ int program_A4()
     {
         digitalWrite(A4_LED1, HIGH);
         digitalWrite(A4_PIEPS, HIGH);
-        delay(PA4_LOOP_DELAY_MS);
+        delay_ms(PA4_LOOP_DELAY_MS);
   
         digitalWrite(A4_LED1, LOW);
         digitalWrite(A4_PIEPS, LOW);
-        delay(PA4_LOOP_DELAY_MS);
+        delay_ms(PA4_LOOP_DELAY_MS);
 
         //TO DO2: realtime command... it just works for reset command 
         // check if there is an interrupt 
@@ -164,11 +164,11 @@ int program_A4A()
     {
         digitalWrite(A4_LED1, HIGH);
         digitalWrite(A4_PIEPS, HIGH);
-        delay(PA4_LOOP_DELAY_MS);
+        delay_ms(PA4_LOOP_DELAY_MS);
   
         digitalWrite(A4_LED1, LOW);
         digitalWrite(A4_PIEPS, LOW);
-        delay(PA4_LOOP_DELAY_MS);
+        delay_ms(PA4_LOOP_DELAY_MS);
 
         //TO DO2: realtime command... it just works for reset command 
         // check if there is an interrupt 
@@ -189,9 +189,9 @@ int program_A4B()
         led_blink(A4B_LED2, PA4B_LOOP_DELAY_MS);
         led_blink(A4B_LED3, PA4B_LOOP_DELAY_MS);
         digitalWrite(A4B_PIEPS, HIGH);
-        delay(PA4B_LOOP_DELAY_MS);
+        delay_ms(PA4B_LOOP_DELAY_MS);
         digitalWrite(A4B_PIEPS, LOW);
-        delay(PA4B_LOOP_DELAY_MS);
+        delay_ms(PA4B_LOOP_DELAY_MS);
 
         //TO DO2: realtime command... it just works for reset command 
         // check if there is an interrupt 
@@ -208,7 +208,7 @@ int program_A5()
     for (;;)
     {
         RGB_led_color_change(random(0,255), random(0,255), random(0,255));
-        delay(PA5_LOOP_DELAY_MS);
+        delay_ms(PA5_LOOP_DELAY_MS);
        
         //TO DO2: realtime command... it just works for reset command 
         // check if there is an interrupt 
@@ -290,8 +290,69 @@ int program_A8()
             digitalWrite(A8_LED1, LOW);
         }
         
-        delay(PA8_LOOP_DELAY_MS);
+        delay_ms(PA8_LOOP_DELAY_MS);
 
+        //TO DO2: realtime command... it just works for reset command 
+        // check if there is an interrupt 
+        if (check_realtime()) { break; }
+    }
+
+    return 0;
+}
+
+int program_A9()
+{
+    // set the pins
+    program_A9_init();
+    
+    int knob = 0;
+
+    for (;;)
+    {
+        knob = analogRead(A9_KNOB);
+
+        digitalWrite(A9_LED1, HIGH);
+
+        delay_ms(knob);
+
+        digitalWrite(A9_LED1, LOW);
+
+        delay_ms(knob);
+
+        //TO DO2: realtime command... it just works for reset command 
+        // check if there is an interrupt 
+        if (check_realtime()) { break; }
+    }
+
+    return 0;
+}
+
+int program_A10()
+{
+    // set the pins
+    program_A10_init();
+    
+    int tem = 0;
+    int sensor = 0;
+
+    for (;;)
+    {
+        sensor = analogRead(A10_TMP36);
+        tem= map(sensor, 0, 410, -50, 150);
+
+        printInteger(tem);        
+        printPgmString(PSTR(" Grad Celsius\n"));
+
+        if (tem >= 30)
+        {
+            digitalWrite(A10_PIEZO, HIGH);
+        }
+        else
+        {
+            digitalWrite(A10_PIEZO, LOW);
+        }
+
+        delay_ms(PA10_LOOP_DELAY_MS);
         //TO DO2: realtime command... it just works for reset command 
         // check if there is an interrupt 
         if (check_realtime()) { break; }
