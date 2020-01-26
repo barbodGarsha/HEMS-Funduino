@@ -41,14 +41,42 @@ int program_change(String program)
         #ifdef CLI_ENABLE
         printPgmString(PSTR("PA3 is running\n"));
         #endif
-        program_A3_init();
+        program_A3();
     }
     else if(program == PA4)
     {
         #ifdef CLI_ENABLE
         printPgmString(PSTR("PA4 is running\n"));
         #endif
-        program_A4_init();
+        program_A4();
+    }
+    else if(program == PA4A)
+    {
+        #ifdef CLI_ENABLE
+        printPgmString(PSTR("PA4A is running\n"));
+        #endif
+        program_A4A();
+    }
+    else if(program == PA4B)
+    {
+        #ifdef CLI_ENABLE
+        printPgmString(PSTR("PA4B is running\n"));
+        #endif
+        program_A4B();
+    }
+    else if(program == PA5)
+    {
+        #ifdef CLI_ENABLE
+        printPgmString(PSTR("PA5 is running\n"));
+        #endif
+        program_A5();
+    }
+    else if(program == PA6)
+    {
+        #ifdef CLI_ENABLE
+        printPgmString(PSTR("PA6 is running\n"));
+        #endif
+        program_A6();
     }
     else
     {

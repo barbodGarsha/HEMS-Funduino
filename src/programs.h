@@ -6,6 +6,8 @@
 #define PA4 "PA4"
 #define PA4A "PA4A"
 #define PA4B "PA4B"
+#define PA5 "PA5"
+#define PA6 "PA6"
 
 // PA2B DEFAULTS ------------------------------------------------------------
 
